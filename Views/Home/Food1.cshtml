@@ -1,0 +1,41 @@
+﻿@model API_Assignment.Models.Mymodel
+
+
+
+<h1>Food</h1>
+<hr />
+
+<p>Desciption:@Model.description</p>
+
+<tr>
+    <th>This food belongs to class of : FinalFood  </th>
+
+</tr>
+
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Nutrient Name,Nutrient Measured Unit</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.foodNutrients.GetRange(0, 10))
+        {
+            <tr>
+
+                <td>@Html.DisplayFor(modelItem => item.nutrient.name)</td>
+                <td>@Html.DisplayFor(modelItem => item.nutrient.unit)</td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+
+
+<script>
+    alertDbSave(@ViewBag.dbSuccessComp);
+</script>

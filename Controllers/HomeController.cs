@@ -29,7 +29,16 @@ namespace API_Assignment.Controllers
             return View(food);
         }
 
-      public ActionResult Display()
+        public ActionResult Food1()
+        {
+            APIHandler webHandler = new APIHandler();
+            Mymodel food = webHandler.GetModel1();
+
+
+            return View(food);
+        }
+
+        public ActionResult Display()
         {
 
 
