@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <title>Frankfurt Beef</title>
+    <title>Dry Pink Beans</title>
     <style>
 
 
@@ -87,7 +87,7 @@ img {
         <a href="survey.html">Chart Data</a>
         <a asp-area="" asp-controller="Home" asp-action="aboutus">AboutUs</a>
     </div>
-    <h1>Frankfurter Beef</h1>
+    <h1>Dry Pink Beans</h1>
     <hr />
 
     <p>Desciption:@Model.description</p>
@@ -97,25 +97,25 @@ img {
         new Chart(document.getElementById("doughnut-chart"), {
             type: 'doughnut',
             data: {
-                labels: ["Protein", "Fat", "Carbohydrate"],
+                labels: ["Protein", "Fat", "Carbohydrates"],
                 datasets: [
                     {
                         label: "Calorie",
-                                  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f"],
-          data: [13.7,81.3,5]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Total Calories- 165 cal'
-
+                        backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f"],
+                        data: [23.8, 2.9, 73.3]
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Total Calories- 252 cal'
                 }
             }
         }
         );
     </script>
+
 </body>
 
 

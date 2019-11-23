@@ -1,41 +1,143 @@
 ﻿@model API_Assignment.Models.Mymodel
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>Pollock</title>
+        <style>
+
+
+h1
+{
+  color: RED;
+  text-align: center;
+}
+
+p
+{
+  font-family: verdana;
+  font-size: 20px;
+  text-align: center;
+}
+img {
+  width: 100%;
+}
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.float-img{
+float:left;
+margin-right:10px;
+margin-bottom:5px;
+border:solid black 1px;
+padding:2px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #FF5733;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.container {
+  position: relative;
+}
+
+.topleft {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 18px;
+}
+
+img {
+  width: 5%;
+  height: auto;
+  opacity: 0.3;
+}
+@{
+    ViewData["Title"] = "Index";
+}
+        </style>
+    </head>
+    <body>
+
+
+        <div class="topnav">
+            <a asp-area="" asp-controller="Home" asp-action="index">Home</a>
+            <a href="survey.html">Chart Data</a>
+            <a asp-area="" asp-controller="Home" asp-action="aboutus">AboutUs</a>
+        </div>
+        <h1>Pollock Fish</h1>
+        <hr />
+
+        <p>Desciption:@Model.description</p>
+
+        <canvas id="doughnut-chart" width="400" height="70"></canvas>
+        <script>
+            new Chart(document.getElementById("doughnut-chart"), {
+                type: 'doughnut',
+                data: {
+                    labels: ["Protien", "Fat"],
+                    datasets: [
+                        {
+                            label: "Calorie",
+                            backgroundColor: ["#3e95cd", "#8e5ea2"],
+                            data: [89.8, 10.2]
+                        }
+                    ]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Calorie Breakdown'
+                    }
+                }
+            }
+            );
+        </script>
+    </body>
 
 
 
-<h1>Food</h1>
-<hr />
-
-<p>Desciption:@Model.description</p>
-
-<tr>
-    <th>This food belongs to class of : FinalFood  </th>
-    
-</tr>
-
-
-
-<table>
-    <thead>
-        <tr>
-            <th>Nutrient Name,Nutrient Measured Unit</th>
-            
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.foodNutrients.GetRange(0,10))
-        {
+    <table>
+        <thead>
             <tr>
-                
-                <td>@Html.DisplayFor(modelItem => item.nutrient.name)</td>
-                <td>@Html.DisplayFor(modelItem => item.nutrient.unit)</td>
+                <th>Nutrient Name</th>
+
             </tr>
-                          
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.foodNutrients.GetRange(0, 10))
+            {
+                <tr>
+
+                    <td>@Html.DisplayFor(modelItem => item.nutrient.name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.nutrient.unit)</td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
 
 
 
-<script>
-    alertDbSave(@ViewBag.dbSuccessComp);
-</script>

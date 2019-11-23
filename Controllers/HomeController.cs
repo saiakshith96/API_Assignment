@@ -20,6 +20,11 @@ namespace API_Assignment.Controllers
             return View();
         }
 
+        public ActionResult aboutus()
+        {
+            return View();
+        }
+
         public ActionResult Food()
         {
             APIHandler webHandler = new APIHandler();
@@ -38,6 +43,48 @@ namespace API_Assignment.Controllers
             return View(food);
         }
 
+        public ActionResult Food2()
+        {
+            APIHandler webHandler = new APIHandler();
+            Mymodel food = webHandler.GetModel2();
+
+
+            return View(food);
+        }
+
+        public ActionResult Food3()
+        {
+            APIHandler webHandler = new APIHandler();
+            Mymodel food = webHandler.GetModel3();
+
+
+            return View(food);
+        }
+
+        public ActionResult Food4()
+        {
+            APIHandler webHandler = new APIHandler();
+            Mymodel food = webHandler.GetModel4();
+
+
+            return View(food);
+        }
+        public ActionResult Food5()
+        {
+            APIHandler webHandler = new APIHandler();
+            Mymodel food = webHandler.GetModel5();
+
+
+            return View(food);
+        }
+        public ActionResult Food6()
+        {
+            APIHandler webHandler = new APIHandler();
+            Mymodel food = webHandler.GetModel6();
+
+
+            return View(food);
+        }
         public ActionResult Display()
         {
 
